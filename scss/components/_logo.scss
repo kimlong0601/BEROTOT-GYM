@@ -1,0 +1,20 @@
+.logo{
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 0;
+    .logo-content{
+        @include flex(center,space-between);
+        @include tablet{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            justify-content: center;
+        }
+        @include mobile{
+            display: none;
+        }
+        
+    }
+}

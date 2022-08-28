@@ -1,0 +1,168 @@
+.price{
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    overflow: hidden;
+    .price-heading{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+
+        .price__title{
+            font-size: $big-font-size;
+            color: $first-color;
+            font-family: $second-font;
+        }
+        .price__subtitle{
+            font-size: $biggest-font-size;
+            text-transform: uppercase;
+            span{
+                -webkit-text-stroke: 1px $title-color;
+                color: transparent;
+            }
+        }
+        .price__title, .price__subtitle{
+            letter-spacing: 0.5px;
+        }
+        @include tablet{
+            .price__title{
+                font-size: 1.75rem;
+            }
+            .price__subtitle{
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .price-content{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        place-items: center;
+        
+        &__box{
+            padding: 2rem 3.5rem;
+            background-color: hsla(79, 6%, 64%, .07);
+            border: 2px solid transparent;
+            transition: 0.5s;
+            .box-images{
+                width: 60px;
+                height: 60px;
+                background-color: $first-color-gray;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                margin-bottom: 1rem;
+                img{
+                    width: 40px;
+                }
+            }
+            .box-title{
+                h3{
+                    text-transform: uppercase;
+                    color: $first-color-gray;
+                }
+            }
+            .box-price{
+                margin: 1rem 0;
+                h1{
+                    font-size: $h1-font-size;
+                }
+            }
+            .box-list{
+                .list__item{
+                    margin-bottom: 0.8rem;
+                    color: $title-color;
+                    i{
+                        color: $first-color;
+                        padding-right: 5px;
+                    }
+                }
+                .list__item.opacity{
+                    opacity: 0.3;
+                }
+            }
+            .box-button{
+                margin-top: 1.5rem;
+                button{
+                    width: 170px;
+                    height: 50px;
+                    font-weight: $font-bold;
+                    i{
+                        margin-left: 5px;
+                        transition: transform 0.5s;
+                    }
+                }
+                button:hover{
+                    cursor: pointer;
+                    i{
+                        transform: translateX(5px);
+                        transition: transform 0.5s;
+                    }
+                }
+            }
+
+        }
+        &__box:hover{
+            background-color: $first-color;
+            border: 2px solid $first-color-light;
+            transform: translateY(-10px);
+            transition: 0.5s;
+            .box-images{
+                background-color: $first-color-light;
+            }
+            .box-title{
+                h3{
+                    color: $title-color-black;
+                }
+            }
+            .box-price{
+                h1{
+                    color: $title-color-black;
+                }
+            }
+            .box-list{
+                .list__item{
+                    color: $title-color-black;
+                    i{
+                        color: $title-color;
+                    }
+                }
+            }
+        }
+        @include tablet{
+            grid-template-columns: 1fr 1fr;
+            &__box{
+                margin-top: 1.5rem;
+            }
+        }
+        @include mobile{
+            grid-template-columns: 1fr;
+            &__box{
+                width: 80%;
+                margin-top: 2.5rem;
+                padding: 1.5rem 2rem;
+                @include flex(center,center);
+                flex-direction: column;
+                .box-title{
+                    h3{
+                        font-size: 1rem;
+                    }
+                }
+                .box-price{
+                    h1{
+                        font-size: 1.5rem;
+                    }
+                }
+                .box-list{
+                    .list__item{
+                        font-size: 0.986rem;
+                    }
+                }
+                .box-button{
+                    font-size: 0.986rem;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

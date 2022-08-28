@@ -1,0 +1,115 @@
+.header-section{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 999;
+    transition: background-color 0.4s;
+    &.shrink{
+        height: $header-shrink-height;
+        box-shadow: $box-shadow;
+        height: auto;
+        background-color: hsl(79, 4%, 15%);
+        transition: background-color 0.4s;
+    }
+    @include tablet{
+        height: $header-tablet-height;
+    }
+    @include mobile{
+        height: $header-mobile-height;
+    }
+    .nav{
+        height: $header-height;
+        @include flex(center,space-between);
+
+        .nav-logo{
+            color: $title-color;
+            display: flex;
+            align-items: center;
+            column-gap: 0.5rem;
+            font-family: $font-bold;
+            img{
+                width: 1.25rem;
+            }
+        }
+
+        .menu-toggle{
+            display: none;
+            @include tablet{
+                display: block;
+                font-size: 1.5rem;
+                color: $title-color;
+            }
+        }
+        .menu-toggle:hover{
+            cursor: pointer;
+        }
+
+        .nav-menu{
+            @include flex(center,center);
+            gap: 0 50px;
+            @include tablet{
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: hsla(180, 12%, 8%, .8);
+                backdrop-filter: blur(102px);
+                -webkit-backdrop-filter: blur(102px);
+                flex-direction: column;
+                height: 100vh;
+                width: 60%;
+                gap: 50px 0;
+                border-left: 2px solid $first-color-gray;
+                transform: translateX(100%);
+                transition: transform 0.5s ease;
+                &.active{
+                    transform: translateX(0);
+                }
+                .menu-close{
+                    position: absolute;
+                    top: 5%;
+                    right: 5%;
+                }
+            }
+            &__item{
+                color: $title-color;
+                .nav-link.active{
+                    color: $first-color;
+                }
+                .nav-link:hover{
+                    cursor: pointer;
+                }
+            }
+
+            &__item:hover{
+                color: $first-color;
+            }
+
+            .menu-close{
+                display: none;
+                @include tablet{
+                    display: block;
+                    color: $title-color;
+                    font-size: 1.5rem;
+                }
+            }
+            .menu-close:hover{
+                cursor: pointer;
+            }
+
+            .nav-button{
+                width: 150px;
+                height: 50px;
+                background-color: $title-color;
+                font-weight: $font-bold;
+                transition: background-color 0.4s ease;
+                @include flex(center,center);
+            }
+            .nav-button:hover{
+                background-color: $first-color-dark;
+                transition: background-color 0.4s ease;
+            }
+        }
+    }
+}

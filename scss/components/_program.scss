@@ -1,0 +1,116 @@
+.programs{
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    overflow: hidden;
+
+    .programs-header{
+        width: 100%;
+        text-align: center;
+        letter-spacing: 1.5px;
+        margin-bottom: 3rem;
+        &__subtitle{
+            color: $first-color-dark;
+            font-size: $big-font-size;
+            font-family: $second-font;
+        }
+        &__title{
+            color: $title-color;
+            font-size: $biggest-font-size;
+            text-transform: uppercase;
+            font-weight: $font-bold;
+            span{
+                -webkit-text-stroke: 1px $title-color;
+                color: transparent;
+            }
+        }
+        @include tablet{
+            &__subtitle{
+                font-size: 1.75rem;
+            }
+            &__title{
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .programs-content{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 0 1.5rem;
+        color: $title-color;
+        .programs-card{
+            background-color: hsla(79, 6%, 64%, .07);
+            padding: 1.5rem 2rem;
+            border: 2px solid transparent;
+            transition: background-color 0.5s, border 0.4s;
+            &__shape{
+                width: 55px;
+                height: 55px;
+                background-color: $first-color-gray;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                margin-bottom: 1rem;
+                img{
+                    width: 40px;
+                }
+            }
+            &__title{
+                margin-bottom: 1rem;
+                font-size: $h3-font-size;
+            }
+            &__description{
+                font-size: $normal-font-size;
+                letter-spacing: 0.5px;
+            }
+            &__description,&__title{
+                transition: color 0.5s;
+            }
+            &__button{
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                color: $title-color-black;
+                opacity: 0;
+                transition: opacity 0.3s;
+                i{
+                    display: block;
+                    transition: transform 0.3s;
+                }
+            }
+            &__button:hover{
+                cursor: pointer;
+                i{
+                    transform: translateX(0.45rem);
+                }
+            }
+        }
+        .programs-card:hover{
+            background-color: $first-color;
+            border: 2px solid $first-color-light;
+        }
+        .programs-card:hover .programs-card__shape{
+            background-color: $first-color-light;
+        }
+        .programs-card:hover .programs-card__title,
+        .programs-card:hover .programs-card__description{
+            color: $title-color-black;
+        }
+        .programs-card:hover .programs-card__button{
+            opacity: 1;
+        }
+        @include tablet{
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        @include mobile{
+            grid-template-columns: 1fr;
+            place-items: center;
+            .programs-card{
+                width: 80%;
+            }
+        }
+    }
+}

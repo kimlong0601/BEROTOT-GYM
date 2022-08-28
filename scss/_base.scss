@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    scroll-behavior: smooth;
+    
+}
+html{
+    font-size: 16px;
+}
+body{
+    font-family: $body-font;
+    background-color: $body-color;
+}
+body,
+button,
+input {
+  font-family: $body-font;
+  font-size: $normal-font-size;
+}
+button, input{
+    outline: none;
+    border: none;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: unset;
+}
+h1, h2, h3{
+    color: $title-color;
+    font-weight: $font-bold;
+}
+.wrapper{
+    max-width: 1600px;
+    margin: 0 auto;
+    background: #101315;
+}
+.container{
+    max-width: 1260px;
+    padding: 0 20px;
+    margin: 0 auto;
+    @include tablet{
+        padding: 0 20px;
+    }
+    @include mobile{
+        padding: 0 15px;
+    }
+}
+.color-green{
+    color: $first-color;
+}
+.color-red{
+    color: hsl(0, 80%, 64%);
+}
