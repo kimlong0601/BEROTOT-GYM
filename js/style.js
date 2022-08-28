@@ -137,10 +137,7 @@ const sr = ScrollReveal({
     duration: 2000,
     delay: 300,
 })
-//header
-sr.reveal(`.nav-link`,{interval: 300})
-sr.reveal(`.nav-button`,{origin: "bottom"})
-sr.reveal(`.nav-logo`)
+
 //home 
 sr.reveal(`.hero-content__data`)
 sr.reveal(`.hero-content__images img`, {delay: 400, origin: 'bottom'})
